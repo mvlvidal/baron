@@ -1,8 +1,5 @@
 package br.com.baron.model;
 
-import java.math.BigDecimal;
-import java.util.Calendar;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -17,22 +14,10 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Salario extends AbstractModel {
+public class Cartao extends AbstractModel {
 
 	private static final long serialVersionUID = 1L;
-
-	@Column
-	private BigDecimal valorBruto;
 	
 	@Column
-	private BigDecimal valorLiquido;
-	
-	@Column
-	private BigDecimal descontos;
-	
-	@Column
-	private String descricaoDescontos;
-	
-	@Column
-	private Calendar dataExpiracao;
+	private Integer digitosFinais;
 }

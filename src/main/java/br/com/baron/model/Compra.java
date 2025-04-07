@@ -20,23 +20,31 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Despesa extends AbstractModel {
+public class Compra extends AbstractModel {
 
 	private static final long serialVersionUID = 1L;
-
-	@Column(nullable = false)
-	private BigDecimal valor;
-	
-	@Column
-	private Integer parcela;
 	
 	@Column(nullable = false)
 	private Calendar data;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idMes", nullable = false)
+	private Mes mes;
+	
+	@Column(nullable = false)
+	private BigDecimal valor;
+	
 	@Column
-	private Calendar vencimento;
+	private Integer quantidadeParcelas;
+	
+	@Column
+	private BigDecimal valorParcela;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idTipoDespesa", nullable = false)
-	private TipoDespesa tipoDespesa;
+    @JoinColumn(name = "idCartao")
+	private Cartao cartao;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idTipoCompra")
+	private TipoCompra tipoCompra;
 }

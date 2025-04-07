@@ -1,9 +1,5 @@
 package br.com.baron.model;
 
-import java.math.BigDecimal;
-import java.util.Calendar;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -20,23 +16,15 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Despesa extends AbstractModel {
+public class SalarioMes extends AbstractModel {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(nullable = false)
-	private BigDecimal valor;
-	
-	@Column
-	private Integer parcela;
-	
-	@Column(nullable = false)
-	private Calendar data;
-	
-	@Column
-	private Calendar vencimento;
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idSalario", nullable = false)
+	private Salario salario;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idTipoDespesa", nullable = false)
-	private TipoDespesa tipoDespesa;
+    @JoinColumn(name = "idMes", nullable = false)
+	private Mes mes;
 }

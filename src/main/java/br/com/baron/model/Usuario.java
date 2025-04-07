@@ -15,7 +15,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usuario extends AbstractModel{
-	
+
+	private static final long serialVersionUID = 1L;
+
 	@Column
 	private String nome;
 	

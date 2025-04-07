@@ -33,6 +33,9 @@ public abstract class AbstractModel implements Serializable{
 	private Long id;
 	
 	@Column(nullable = false)
+	private String descricao;
+	
+	@Column(nullable = false)
 	private Calendar dataCadastro;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

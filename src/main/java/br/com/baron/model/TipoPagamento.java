@@ -15,7 +15,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TipoPagamento extends AbstractModel {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	@Column
 	private Integer codigo;
 	
